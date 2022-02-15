@@ -1,0 +1,363 @@
+/export/home1/sdc_image_pool/images/p998/e1011/s15792/i85646713.MRDC.1------------------/export/home1/sdc_image_pool/images/p998/e1011/s15792/i85646713.MRDC.1----------
+
+(   2,   0) [4] [UL]                            GROUP_LENGTH	184
+(   2,   1) [2] [OB]           FILE_META_INFORMATION_VERSION	blob size 2
+(   2,   2) [26] [UI]             MEDIA_STORAGE_SOP_CLASS_UID	1.2.840.10008.5.1.4.1.1.4
+(   2,   3) [58] [UI]    MEDIA_STORAGE_SOP_INSTANCE_CLASS_UID	1.2.840.113619.2.475.5554020.7043189.24858.1643904354.968
+(   2,  10) [20] [UI]                     TRANSFER_SYNTAX_UID	1.2.840.10008.1.2.1
+(   2,  12) [20] [UI]                IMPLEMENTATION_CLASS_UID	1.2.840.113619.6.475
+(   2,  13) [6] [SH]             IMPLEMENTATION_VERSION_NAME	RX28.0
+(   8,   5) [10] [CS]                  SPECIFIC_CHARACTER_SET	ISO_IR 100
+(   8,   8) [22] [CS]                              IMAGE_TYPE	ORIGINAL\PRIMARY\OTHER
+(   8,  16) [26] [UI]                           SOP_CLASS_UID	1.2.840.10008.5.1.4.1.1.4
+(   8,  18) [58] [UI]                        SOP_INSTANCE_UID	1.2.840.113619.2.475.5554020.7043189.24858.1643904354.968
+(   8,  20) [8] [DA]                              STUDY_DATE	20220213
+(   8,  21) [8] [DA]                             SERIES_DATE	20220213
+(   8,  22) [8] [DA]                        ACQUISITION_DATE	20220213
+(   8,  23) [8] [DA]                            CONTENT_DATE	20220213
+(   8,  30) [6] [TM]                              STUDY_TIME	140046
+(   8,  31) [6] [TM]                             SERIES_TIME	141725
+(   8,  32) [6] [TM]                        ACQUISITION_TIME	141725
+(   8,  33) [6] [TM]                            CONTENT_TIME	141725
+(   8,  50) [0] [SH]                        ACCESSION_NUMBER	(null)
+(   8,  60) [2] [CS]                                MODALITY	MR
+(   8,  70) [18] [LO]                            MANUFACTURER	GE MEDICAL SYSTEMS
+(   8,  80) [32] [LO]                        INSTITUTION_NAME	New York State Psychiatric Inst 
+(   8,  90) [0] [PN]               REFERRING_PHYSICIANS_NAME	(null)
+(   8,1010) [8] [SH]                            STATION_NAME	GEOCGEOC
+(   8,1030) [10] [LO]                       STUDY_DESCRIPTION	marscombo 
+(   8,103e) [22] [LO]                      SERIES_DESCRIPTION	Headphone trainer MUX4
+(   8,1090) [14] [LO]                MANUFACTURERS_MODEL_NAME	SIGNA Premier 
+(   8,1111) [0] [SQ]REFERENCED_PERFORMED_PROCEDURE_STEP_SEQUENCE	Size of SQ :1
+> Item 0:
+(   8,1150) [24] [UI]                REFERENCED_SOP_CLASS_UID	1.2.840.10008.3.1.2.3.3
+(   8,1155) [60] [UI]             REFERENCED_SOP_INSTANCE_UID	1.2.840.113619.6.475.272494081628936369075046276540510501452
+------ END of SQ (   8,1111)
+(   8,1140) [0] [SQ]               REFERENCED_IMAGE_SEQUENCE	Size of SQ :3
+> Item 0:
+(   8,1150) [26] [UI]                REFERENCED_SOP_CLASS_UID	1.2.840.10008.5.1.4.1.1.4
+(   8,1155) [58] [UI]             REFERENCED_SOP_INSTANCE_UID	1.2.840.113619.2.475.5554020.7043189.24858.1643904353.613
+> Item 1:
+(   8,1150) [26] [UI]                REFERENCED_SOP_CLASS_UID	1.2.840.10008.5.1.4.1.1.4
+(   8,1155) [58] [UI]             REFERENCED_SOP_INSTANCE_UID	1.2.840.113619.2.475.5554020.7043189.24858.1643904353.603
+> Item 2:
+(   8,1150) [26] [UI]                REFERENCED_SOP_CLASS_UID	1.2.840.10008.5.1.4.1.1.4
+(   8,1155) [58] [UI]             REFERENCED_SOP_INSTANCE_UID	1.2.840.113619.2.475.5554020.7043189.24858.1643904353.832
+------ END of SQ (   8,1140)
+(   8,2218) [0] [SQ]                ANATOMIC_REGION_SEQUENCE	Size of SQ :1
+> Item 0:
+(   8, 100) [8] [SH]                              CODE_VALUE	T-D1100 
+(   8, 102) [4] [SH]                CODING_SCHEME_DESIGNATOR	SRT 
+(   8, 104) [4] [LO]                            CODE_MEANING	Head
+------ END of SQ (   8,2218)
+(   9,  10) [12] [LO]                            GEMS_IDEN_01	GEMS_IDEN_01
+(   9,1002) [4] [SH]                                SUITE_ID	GEOC
+(   9,1004) [6] [SH]                              PRODUCT_ID	SIGNA 
+(   9,1027) [4] [SL]                       IMAGE_ACTUAL_DATE	1644761845
+(   9,1030) [16] [SH]                              SERVICE_ID	212543Premier   
+(   9,1031) [4] [SH]                  MOBILE_LOCATION_NUMBER	9999
+(   9,10e3) [38] [UI]                           EQUIPMENT_UID	1.2.840.113619.1.475.5.5554020.7043189
+(   9,10e9) [4] [SL]           ACTUAL_SERIES_DATE_TIME_STAMP	1644761845
+(  10,  10) [16] [PN]                           PATIENTS_NAME	marscombo438186 
+(  10,  20) [6] [LO]                              PATIENT_ID	21293 
+(  10,  30) [8] [DA]                     PATIENTS_BIRTH_DATE	20210101
+(  10,  40) [2] [CS]                            PATIENTS_SEX	M
+(  10,1010) [4] [AS]                            PATIENTS_AGE	013M
+(  10,1030) [4] [DS]                         PATIENTS_WEIGHT	6.35
+(  10,21b0) [0] [LT]             ADDITIONAL_PATIENTS_HISTORY	(null)
+(  18,  15) [4] [CS]                      BODY_PART_EXAMINED	HEAD
+(  18,  20) [6] [CS]                       SCANNING_SEQUENCE	EP\RM
+(  18,  21) [4] [CS]                        SEQUENCE_VARIANT	NONE
+(  18,  22) [52] [CS]                            SCAN_OPTIONS	SAT_GEMS\EDR_GEMS\MP_GEMS\EPI_GEMS\HYPERBAND_GEMS\FS
+(  18,  23) [2] [CS]                     MR_ACQUISITION_TYPE	2D
+(  18,  25) [2] [CS]                              ANGIO_FLAG	N
+(  18,  50) [4] [DS]                         SLICE_THICKNESS	2.4
+(  18,  80) [4] [DS]                         REPETITION_TIME	1000
+(  18,  81) [2] [DS]                               ECHO_TIME	30
+(  18,  83) [2] [DS]                      NUMBER_OF_AVERAGES	1
+(  18,  84) [10] [DS]                       IMAGING_FREQUENCY	127.757346
+(  18,  85) [2] [SH]                          IMAGED_NUCLEUS	1H
+(  18,  86) [2] [IS]                             ECHO_NUMBER	1
+(  18,  87) [2] [DS]                 MAGNETIC_FIELD_STRENGTH	3
+(  18,  88) [4] [DS]                  SPACING_BETWEEN_SLICES	2.4
+(  18,  91) [2] [IS]                       ECHO_TRAIN_LENGTH	1
+(  18,  93) [4] [DS]                        PERCENT_SAMPLING	100
+(  18,  94) [4] [DS]             PERCENT_PHASE_FIELD_OF_VIEW	100
+(  18,  95) [4] [DS]                         PIXEL_BANDWIDTH	6250
+(  18,1000) [16] [LO]                    DEVICE_SERIAL_NUMBER	000212543Premier
+(  18,1020) [44] [LO]                       SOFTWARE_VERSIONS	28\LX\MR Software release:RX28.0_R05_2035.a 
+(  18,1030) [24] [LO]                           PROTOCOL_NAME	8105 Marsh COMBO Infant 
+(  18,1060) [2] [DS]                            TRIGGER_TIME	76
+(  18,1080) [2] [CS]                     BEAT_REJECTION_FLAG	Y
+(  18,1088) [2] [IS]                              HEART_RATE	0
+(  18,1090) [2] [IS]                CARDIAC_NUMBER_OF_IMAGES	0
+(  18,1094) [2] [IS]                          TRIGGER_WINDOW	0
+(  18,1100) [4] [DS]                 RECONSTRUCTION_DIAMETER	192
+(  18,1250) [6] [SH]                       RECEIVE_COIL_NAME	48HAP 
+(  18,1310) [8] [US]                      ACQUISITION_MATRIX	80\0\0\80
+(  18,1312) [4] [CS]                PHASE_ENCODING_DIRECTION	COL
+(  18,1314) [2] [DS]                              FLIP_ANGLE	52
+(  18,1315) [2] [CS]                VARIABLE_FLIP_ANGLE_FLAG	N
+(  18,1316) [8] [DS]                                     SAR	0.331339
+(  18,5100) [4] [CS]                        PATIENT_POSITION	HFS
+(  19,  10) [12] [LO]                            GEMS_ACQU_01	GEMS_ACQU_01
+(  19,100f) [10] [DS]                      HORIZ_FRAME_OF_REF	343.899994
+(  19,1011) [2] [SS]                         SERIES_CONTRAST	0
+(  19,1012) [2] [SS]                             SERIES_PSEQ	2
+(  19,1017) [2] [SS]                            SERIES_PLANE	16
+(  19,1018) [2] [LO]                          FIRST_SCAN_RAS	I 
+(  19,1019) [8] [DS]                     FIRST_SCAN_LOCATION	-7.82599
+(  19,101a) [2] [LO]                           LAST_SCAN_RAS	S 
+(  19,101b) [8] [DS]                           LAST_SCAN_LOC	113.607
+(  19,101e) [10] [DS]                   DISPLAY_FIELD_OF_VIEW	192.000000
+(  19,105a) [4] [FL]            ACQUISITION_DURATION_PRIVATE	2.5e+07
+(  19,107d) [2] [DS]                             SECOND_ECHO	0
+(  19,107e) [2] [SS]                        NUMBER_OF_ECHOES	1
+(  19,107f) [8] [DS]                             TABLE_DELTA	0.000000
+(  19,1081) [2] [SS]                              CONTIGUOUS	1
+(  19,1084) [8] [DS]                                PEAK_SAR	0.517169
+(  19,1087) [8] [DS]                 CARDIAC_REPETITION_TIME	0.000000
+(  19,1088) [2] [SS]                IMAGES_PER_CARDIAC_CYCLE	0
+(  19,108a) [2] [SS]                     ANALOG_RECEIVE_GAIN	11
+(  19,108b) [2] [SS]                    DIGITAL_RECEIVE_GAIN	30
+(  19,108d) [2] [DS]                     DELAY_AFTER_TRIGGER	0
+(  19,108f) [2] [SS]                                  SWAPPF	1
+(  19,1090) [2] [SS]                          PAUSE_INTERVAL	0
+(  19,1091) [8] [DS]                              PAUSE_TIME	0.000000
+(  19,1092) [4] [SL]               SLICE_OFFSET_ON_FREQ_AXIS	0
+(  19,1093) [10] [DS]                    APS_CENTER_FREQUENCY	1277573460
+(  19,1094) [2] [SS]                       APS_TRANSMIT_GAIN	88
+(  19,1095) [2] [SS]                 APS_ANALOG_RECEIVE_GAIN	11
+(  19,1096) [2] [SS]                APS_DIGITAL_RECEIVE_GAIN	30
+(  19,1097) [4] [SL]                BITMAP_DEFINING_USER_CVS	1041
+(  19,109b) [2] [SS]                          PULSE_SEQ_MODE	0
+(  19,109c) [16] [LO]                          PULSE_SEQ_NAME	epi_mph_trigger 
+(  19,109d) [14] [DT]                          PULSE_SEQ_DATE	20210426161232
+(  19,109e) [4] [LO]                 INTERNAL_PULSE_SEQ_NAME	EPI 
+(  19,109f) [2] [SS]                               COIL_TYPE	3
+(  19,10a0) [2] [SS]                       SURFACE_COIL_TYPE	0
+(  19,10a1) [2] [SS]                     EXTREMITY_COIL_FLAG	0
+(  19,10a2) [4] [SL]                     RAW_DATA_RUN_NUMBER	39424
+(  19,10a3) [4] [UL]               CALIBRATED_FIELD_STRENGTH	0
+(  19,10a4) [2] [SS]                SAT_SUPPRESSION_FATWATER	1
+(  19,10a7) [8] [DS]                             USER_DATA_0	1.000000
+(  19,10a8) [8] [DS]                             USER_DATA_1	0.000000
+(  19,10a9) [8] [DS]                             USER_DATA_2	0.000000
+(  19,10aa) [8] [DS]                             USER_DATA_3	0.000000
+(  19,10ab) [8] [DS]                             USER_DATA_4	0.000000
+(  19,10ac) [8] [DS]                             USER_DATA_5	0.000000
+(  19,10ad) [8] [DS]                             USER_DATA_6	0.000000
+(  19,10ae) [8] [DS]                             USER_DATA_7	0.000000
+(  19,10af) [8] [DS]                             USER_DATA_8	0.000000
+(  19,10b0) [8] [DS]                             USER_DATA_9	0.000000
+(  19,10b1) [8] [DS]                            USER_DATA_10	0.000000
+(  19,10b2) [8] [DS]                            USER_DATA_11	0.000000
+(  19,10b3) [8] [DS]                            USER_DATA_12	0.000000
+(  19,10b4) [8] [DS]                            USER_DATA_13	0.000000
+(  19,10b5) [8] [DS]                            USER_DATA_14	0.000000
+(  19,10b6) [8] [DS]                            USER_DATA_15	0.000000
+(  19,10b7) [8] [DS]                            USER_DATA_16	0.000000
+(  19,10b8) [8] [DS]                            USER_DATA_17	0.000000
+(  19,10b9) [8] [DS]                            USER_DATA_18	0.000000
+(  19,10ba) [8] [DS]                            USER_DATA_19	0.000000
+(  19,10bb) [8] [DS]                            USER_DATA_20	0.000000
+(  19,10bc) [8] [DS]                            USER_DATA_21	0.000000
+(  19,10bd) [8] [DS]                            USER_DATA_22	0.000000
+(  19,10be) [8] [DS]                        PROJECTION_ANGLE	0.000000
+(  19,10c0) [2] [SS]                       SATURATION_PLANES	0
+(  19,10c2) [2] [SS]                          SAT_LOCATION_R	9990
+(  19,10c3) [2] [SS]                          SAT_LOCATION_L	9990
+(  19,10c4) [2] [SS]                          SAT_LOCATION_A	9990
+(  19,10c5) [2] [SS]                          SAT_LOCATION_P	9990
+(  19,10c6) [2] [SS]                          SAT_LOCATION_H	9990
+(  19,10c7) [2] [SS]                          SAT_LOCATION_F	9990
+(  19,10c8) [2] [SS]                        SAT_THICKNESS_RL	0
+(  19,10c9) [2] [SS]                        SAT_THICKNESS_AP	0
+(  19,10ca) [2] [SS]                        SAT_THICKNESS_HF	0
+(  19,10cb) [2] [SS]                PHASE_CONTRAST_FLOW_AXIS	0
+(  19,10cc) [2] [SS]                       VELOCITY_ENCODING	0
+(  19,10cd) [2] [SS]                    THICKNESS_DISCLAIMER	0
+(  19,10ce) [2] [SS]                            PRESCAN_TYPE	2
+(  19,10cf) [2] [SS]        BITMAP_OF_MANUAL_PRESCAN_CHANGES	0
+(  19,10d2) [2] [SS]                    PROJECTION_ALGORITHM	0
+(  19,10d3) [0] [SH]               PROJECTION_ALGORITHM_NAME	(null)
+(  19,10d5) [2] [SS]                         FRACTIONAL_ECHO	2
+(  19,10d7) [2] [SS]                    CARDIAC_PHASE_NUMBER	0
+(  19,10d8) [2] [SS]                       VARIABLE_ECHOFLAG	0
+(  19,10d9) [8] [DS]                        CONCATENATED_SAT	0.000000
+(  19,10df) [8] [DS]                            USER_DATA_23	0.000000
+(  19,10e0) [8] [DS]                            USER_DATA_24	0.000000
+(  19,10e2) [8] [DS]                   VELOCITY_ENCODE_SCALE	0.000000
+(  19,10f2) [2] [SS]            FAST_PHASES_NUMBER_OF_PHASES	25
+(  19,10f9) [2] [DS]                           TRANSMIT_GAIN	88
+(  20,   d) [60] [UI]                      STUDY_INSTANCE_UID	1.2.840.113619.6.475.137886515348847687238669115936403743940
+(  20,   e) [58] [UI]                     SERIES_INSTANCE_UID	1.2.840.113619.2.475.5554020.7043189.27959.1643897039.466
+(  20,  10) [6] [SH]                                STUDY_ID	21293 
+(  20,  11) [2] [IS]                           SERIES_NUMBER	6
+(  20,  12) [2] [IS]                      ACQUISITION_NUMBER	1
+(  20,  13) [2] [IS]                         INSTANCE_NUMBER	1
+(  20,  32) [42] [DS]                          IMAGE_POSITION	-94.0187530518\-83.4467773438\4.0655474663
+(  20,  37) [98] [DS]                       IMAGE_ORIENTATION	1.0000000000000\-0.0000000000000\0.0000000000000\-0.0000000000000\0.9921014453421\-0.1254381208013
+(  20,  52) [58] [UI]                  FRAME_OF_REFERENCE_UID	1.2.840.113619.2.475.5554020.7043189.27959.1643897039.461
+(  20,  60) [0] [CS]                              LATERALITY	(null)
+(  20, 100) [2] [IS]            TEMPORAL_POSITION_IDENTIFIER	1
+(  20, 105) [2] [IS]            NUMBER_OF_TEMPORAL_POSITIONS	25
+(  20,1002) [4] [IS]                   IMAGES_IN_ACQUISITION	1300
+(  20,1040) [0] [LO]            POSITION_REFERENCE_INDICATOR	(null)
+(  20,1041) [12] [DS]                          SLICE_LOCATION	-7.825985909
+(  20,9056) [2] [SH]                             UNKOWN_NAME	1 
+(  20,9057) [4] [UL]                             UNKOWN_NAME	1
+(  21,  10) [12] [LO]                            GEMS_RELA_01	GEMS_RELA_01
+(  21,1035) [2] [SS]            SERIES_FROM_WHICH_PRESCRIBED	1
+(  21,1036) [2] [SS]             IMAGE_FROM_WHICH_PRESCRIBED	41
+(  21,1037) [2] [SS]                       SCREEN_FORMAT_816	16
+(  21,104f) [2] [SS]                LOCATIONS_IN_ACQUISITION	52
+(  21,1050) [2] [SS]                  GRAPHICALLY_PRESCRIBED	0
+(  21,1051) [8] [DS]              ROTATION_FROM_SOURCE_X_ROT	0.000000
+(  21,1052) [8] [DS]              ROTATION_FROM_SOURCE_Y_ROT	0.000000
+(  21,1053) [8] [DS]              ROTATION_FROM_SOURCE_Z_ROT	0.000000
+(  21,1056) [4] [SL]         INTEGER_SLOP_NUMBER_OF_3D_SLABS	0
+(  21,1057) [4] [SL]     INTEGER_SLOP_SLICE_LOCS_PER_3D_SLAB	0
+(  21,1058) [4] [SL]   INTEGER_SLOP_NUMBER_OF_SLICE_LOCATION	0
+(  21,1059) [4] [SL]    INTEGER_SLOP_IMAGE_FILTERING_0_50_2T	0
+(  21,105a) [4] [SL]                 INTEGER_SLOP_5_DIFF_DIR	0
+(  21,105b) [8] [DS]                      FLOAT_SLOP_IHTAGFA	0.000000
+(  21,105c) [8] [DS]                      FLOAT_SLOP_IHTAGOR	0.000000
+(  21,105d) [8] [DS]                      FLOAT_SLOP_IHBSPTI	0.000000
+(  21,105e) [8] [DS]                   FLOAT_SLOP_RTIA_TIMER	0.000000
+(  21,105f) [8] [DS]                          FLOAT_SLOP_FPS	0.000000
+(  21,1081) [2] [DS]                  AUTO_WINDOWLEVEL_ALPHA	0
+(  21,1082) [2] [DS]                   AUTO_WINDOWLEVEL_BETA	0
+(  21,1083) [2] [DS]                 AUTO_WINDOWLEVEL_WINDOW	0
+(  21,1084) [2] [DS]                  AUTO_WINDOWLEVEL_LEVEL	0
+(  23,  10) [12] [LO]                            GEMS_STDY_01	GEMS_STDY_01
+(  23,1070) [8] [FD]           START_TIMESECS_IN_FIRST_AXIAL	0
+(  23,1074) [4] [SL]                 NO_OF_UPDATES_TO_HEADER	0
+(  23,107d) [2] [SS]INDICATES_IF_STUDY_HAS_COMPLETE_INFO_DICOMGENESIS	0
+(  23,1080) [0] [SQ]                             UNKOWN_NAME	Size of SQ :1
+> Item 0:
+(  40, 255) [0] [LO]                             UNKOWN_NAME	
+-------------- END of SQ (  23,1080)
+(  25,  10) [12] [LO]                            GEMS_SERS_01	GEMS_SERS_01
+(  25,1006) [2] [SS]                LAST_PULSE_SEQUENCE_USED	2
+(  25,1007) [4] [SL]                        IMAGES_IN_SERIES	1300
+(  25,1010) [4] [SL]                        LANDMARK_COUNTER	0
+(  25,1011) [2] [SS]                  NUMBER_OF_ACQUISITIONS	1
+(  25,1014) [4] [SL]       INDICATES_NO_OF_UPDATES_TO_HEADER	0
+(  25,1017) [4] [SL]                    SERIES_COMPLETE_FLAG	0
+(  25,1018) [4] [SL]               NUMBER_OF_IMAGES_ARCHIVED	0
+(  25,1019) [4] [SL]                  LAST_IMAGE_NUMBER_USED	1300
+(  25,101a) [8] [SH]         PRIMARY_RECEIVER_SUITE_AND_HOST	GEOCGEOC
+(  25,101b) [1032] [OB]                          IMAGE_PROTOCOL	blob size 1032
+(  27,  10) [12] [LO]                            GEMS_IMAG_01	GEMS_IMAG_01
+(  27,1006) [4] [SL]                      IMAGE_ARCHIVE_FLAG	0
+(  27,1010) [2] [SS]                              SCOUT_TYPE	0
+(  27,1030) [0] [SH]                  FOREIGN_IMAGE_REVISION	(null)
+(  27,1031) [2] [SS]                            IMAGING_MODE	1
+(  27,1032) [2] [SS]                          PULSE_SEQUENCE	2
+(  27,1033) [4] [UL]                         IMAGING_OPTIONS	1140885536
+(  27,1035) [2] [SS]                              PLANE_TYPE	16
+(  27,1040) [2] [SH]            RAS_LETTER_OF_IMAGE_LOCATION	I 
+(  27,1041) [4] [FL]                          IMAGE_LOCATION	-7.82599
+(  27,1060) [4] [FL]                       IMAGE_DIMENSION_X	80
+(  27,1061) [4] [FL]                       IMAGE_DIMENSION_Y	80
+(  27,1062) [4] [FL]                   NUMBER_OF_EXCITATIONS	1
+(  28,   2) [2] [US]                       SAMPLES_PER_PIXEL	1
+(  28,   4) [12] [CS]              PHOTOMETRIC_INTERPRETATION	MONOCHROME2
+(  28,  10) [2] [US]                                    ROWS	80
+(  28,  11) [2] [US]                                 COLUMNS	80
+(  28,  30) [8] [DS]                           PIXEL_SPACING	2.4\2.4
+(  28, 100) [2] [US]                          BITS_ALLOCATED	16
+(  28, 101) [2] [US]                             BITS_STORED	16
+(  28, 102) [2] [US]                                HIGH_BIT	15
+(  28, 103) [2] [US]                    PIXEL_REPRESENTATION	1
+(  28, 106) [2] [SS]              SMALLEST_IMAGE_PIXEL_VALUE	0
+(  28, 107) [2] [SS]               LARGEST_IMAGE_PIXEL_VALUE	4201
+(  28,1050) [4] [DS]                           WINDOW_CENTER	2520
+(  28,1051) [4] [DS]                            WINDOW_WIDTH	5041
+(  29,  10) [12] [LO]                            GEMS_IMPS_01	GEMS_IMPS_01
+(  29,1015) [4] [SL]                  LOWER_RANGE_OF_PIXELS1	0
+(  29,1016) [4] [SL]                  UPPER_RANGE_OF_PIXELS1	0
+(  29,1017) [4] [SL]                  LOWER_RANGE_OF_PIXELS2	0
+(  29,1018) [4] [SL]                  UPPER_RANGE_OF_PIXELS2	0
+(  29,1026) [2] [SS]               VERSION_OF_THE_HDR_STRUCT	2
+(  29,1034) [4] [SL]                 ADVANTAGE_COMP_OVERFLOW	16384
+(  29,1035) [4] [SL]                ADVANTAGE_COMP_UNDERFLOW	0
+(  40, 242) [8] [SH]                             UNKOWN_NAME	GEOCGEOC
+(  40, 243) [4] [SH]                             UNKOWN_NAME	GEOC
+(  40, 244) [8] [DA]     PERFORMED_PROCEDURE_STEP_START_DATE	20220213
+(  40, 245) [6] [TM]     PERFORMED_PROCEDURE_STEP_START_TIME	140040
+(  40, 253) [16] [SH]             PERFORMED_PROCEDURE_STEP_ID	7390.1644778840 
+(  40, 254) [10] [LO]    PERFORMED_PROCEDURE_STEP_DESCRIPTION	marscombo 
+(  43,  10) [12] [LO]                            GEMS_PARM_01	GEMS_PARM_01
+(  43,1001) [2] [SS]               BITMAP_OF_PRESCAN_OPTIONS	0
+(  43,1002) [2] [SS]                    GRADIENT_OFFSET_IN_X	1
+(  43,1003) [2] [SS]                    GRADIENT_OFFSET_IN_Y	-109
+(  43,1004) [2] [SS]                    GRADIENT_OFFSET_IN_Z	-193
+(  43,1006) [2] [SS]                     NUMBER_OF_EPI_SHOTS	1
+(  43,1007) [2] [SS]                       VIEWS_PER_SEGMENT	0
+(  43,1008) [2] [SS]                    RESPIRATORY_RATE_BPM	0
+(  43,1009) [2] [SS]               RESPIRATORY_TRIGGER_POINT	0
+(  43,100a) [2] [SS]                   TYPE_OF_RECEIVER_USED	1
+(  43,100b) [8] [DS]   PEAK_RATE_OF_CHANGE_OF_GRADIENT_FIELD	0.000000
+(  43,100c) [10] [DS]              LIMITS_IN_UNITS_OF_PERCENT	100.000000
+(  43,100d) [10] [DS]                     PSD_ESTIMATED_LIMIT	90.620003
+(  43,100e) [10] [DS] PSD_ESTIMATED_LIMIT_IN_TESLA_PER_SECOND	67.919998
+(  43,1010) [2] [US]                            WINDOW_VALUE	0
+(  43,101c) [2] [SS]                      GE_IMAGE_INTEGRITY	0
+(  43,101d) [2] [SS]                             LEVEL_VALUE	0
+(  43,1028) [80] [OB]                       UNIQUE_IMAGE_IDEN	blob size 80
+(  43,1029) [2068] [OB]                        HISTOGRAM_TABLES	blob size 2068
+(  43,102a) [7480] [OB]                       USER_DEFINED_DATA	blob size 7480
+(  43,102c) [2] [SS]                  EFFECTIVE_ECHO_SPACING	572
+(  43,102e) [0] [SH]                     STRING_SLOP_FIELD_2	(null)
+(  43,102f) [2] [SS]                RAW_DATA_TYPE_IMAGE_TYPE	0
+(  43,1030) [2] [SS]                       VAS_COLLAPSE_FLAG	0
+(  43,1032) [2] [SS]                               VAS_FLAGS	2
+(  43,1033) [4] [FL]                         NEG_SCANSPACING	0
+(  43,1034) [2] [IS]                        OFFSET_FREQUENCY	0
+(  43,1035) [4] [UL]                          USER_USAGE_TAG	0
+(  43,1036) [4] [UL]                       USER_FILL_MAP_MSW	0
+(  43,1037) [4] [UL]                       USER_FILL_MAP_LSW	0
+(  43,1038) [96] [FL]                           USER25_USER48	0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\0\0\0
+(  43,1039) [16] [IS]                            SLOP_INT_6_9	0\1073741824\0\0
+(  43,1060) [20] [IS]                          SLOP_INT_10_17	0\0\0\0\0\0\0\262208
+(  43,1061) [60] [UI]                SCANNER_STUDY_ENTITY_UID	1.2.840.113619.6.475.137886515348847687238669115936403743940
+(  43,1062) [6] [SH]                        SCANNER_STUDY_ID	21293 
+(  43,106f) [8] [DS]                     SCANNER_TABLE_ENTRY	0\0\0\0
+(  43,107d) [2] [US]                         RECON_MODE_FLAG	0
+(  43,1080) [170] [LO]                            COIL_ID_DATA	P1:\GEHC6nN3Sr3nDx0PCoAwnft9Jv1G##Ju\660000037980d00b\P2:\GEHCfeNdFExGaokVEz3IvxMzBNiK##Di\690000039e7c320b\P3:0\P4:0\E:\GEHClxzUvj57ORxoglaPlCX0tCXB##NV\f0000003797eff0b
+(  43,1081) [24] [LO]                            GE_COIL_NAME	CugO#+cvD0O5TMuBpNqEIFw 
+(  43,1082) [80] [LO]        SYSTEM_CONFIGURATION_INFORMATION	SRMode=150\GCoilType=13\gradientAmp=9000\lineFreq=60\RFampType=32\DerateGrad=Yes
+(  43,1083) [4] [DS]                         ASSET_R_FACTORS	1\1
+(  43,1084) [18] [LO]                   ADDITIONAL_ASSET_DATA	10000\0\-1\0\\NO\ 
+(  43,1089) [36] [LO]GOVERNING_BODY_DBDT_AND_SAR_OPERATING_MODES	IEC\IEC_FIRST_LEVEL\IEC_FIRST_LEVEL 
+(  43,108a) [4] [CS]PRIVATE_INPLANE_PHASE_ENCODING_DIRECTION	COL
+(  43,1090) [52] [LO]                          SAR_DEFINITION	WHOLE_BODY_6_MIN\LOCAL_PEAK_6_MIN\PARTIAL_BODY_6MIN 
+(  43,1091) [24] [DS]                               SAR_VALUE	0.3313\0.517169\0.206868
+(  43,1095) [26] [LO]                    PRESCAN_REUSE_STRING	TG/s5,RN/s2,Cal/s2,Coil/s1
+(  43,1096) [8] [CS]                   CONTENT_QUALIFICATION	RESEARCH
+(  43,1097) [128] [LO]              IMAGE_FILTERING_PARAMETERS	\\0.00 0.00 0.00 0.00 0.00 0.00 0.00 \0.00 0.00 0.00 0.00 0.00 0.00 0.00 \0.00 0.00 0.00 0.00 0.00 0.00 0.00 \40\0.03\0.03\\1\0\
+(  43,109a) [2] [IS]                 RX_STACK_IDENTIFICATION	1
+(  43,10a8) [6] [DS]                        DUALDRIVE_PARAMS	2\0\25
+(  43,10aa) [166] [LO]         ADDITIONAL_FILTERING_PARAMETERS	rev=2;a=1;b=10.0;c=0.0;d=1.0;e=0.00;f=12.00\rev=2;g=40.0;h=10.0;i=1.0\rev=2;j=0;k=0.00\rev=2;l=10.0;m=0.00;n=1.00;o=0;p=0.0\rev=2;q=0.00;r=2;s=0.0;t=0;u=0;v=0;w=0;x=0
+(  43,10b2) [34] [LO]                             UNKOWN_NAME	952.5\343.9\-52.8906\0\-9999\-9999
+(  43,10b3) [10] [DS]                              HOECC_FLAG	0\0\0\0\0
+(  43,10b6) [10] [LO]                             UNKOWN_NAME	4\2\19\\\\
+(  43,10b7) [8] [LO]                             UNKOWN_NAME	1\0\3\0 
+(  43,10b8) [20] [DS]                             UNKOWN_NAME	1\1\1\0\0\0.00161761
+(  43,10ba) [4] [DS]                             UNKOWN_NAME	0.6
+(  43,10bb) [8] [LO]                             UNKOWN_NAME	2.4\2.4\
+(  43,10bc) [2] [IS]                             UNKOWN_NAME	0
+(  43,10c0) [18] [DS]                             UNKOWN_NAME	2\-11\0\-11\-94.34
+(  43,10c1) [190] [LO]                             UNKOWN_NAME	GE48chHeadAnt-R1-3\GE48chHeadAnt2\P1\#\GE48chHeadAnt-R4-5\GE48chHeadAnt2\P1\#\GE48chHeadPos-N\GE48chHeadPos2\P2\#\GE48chHeadPos-R1-3\GE48chHeadPos2\P2\#\GE48chHeadPos-R4-5\GE48chHeadPos2\P2 
+(  43,10c2) [154] [LO]                             UNKOWN_NAME	GE48chHeadAnt-R1-3\GE48chHeadAnt2\P1\#\GE48chHeadAnt-R4-5\GE48chHeadAnt2\P1\#\GE48chHeadPos-R1-3\GE48chHeadPos2\P2\#\GE48chHeadPos-R4-5\GE48chHeadPos2\P2 
+(  43,10c3) [242] [LO]                             UNKOWN_NAME	{"ver":1,"grx":[{"plug":["GE48chHeadAnt2;P1"],"ras":[[-58.5938,5\0.7812,1],[0,500,1],[-105.779,121.517,1]],"flag":0,"group":0},{"\plug":["GE48chHeadPos2;P2"],"ras":[[-105.469,97.6562,1],[-500,0,\1],[-223.346,113.679,1]],"flag":0,"group":1}]} 
+(  43,10c4) [242] [LO]                             UNKOWN_NAME	{"ver":1,"grx":[{"plug":["GE48chHeadAnt2;P1"],"ras":[[-58.5938,5\0.7812,1],[0,500,1],[-105.779,121.517,1]],"flag":1,"group":0},{"\plug":["GE48chHeadPos2;P2"],"ras":[[-105.469,97.6562,1],[-500,0,\1],[-121.455,113.679,1]],"flag":1,"group":1}]} 
+(  43,10c5) [12] [LO]                             UNKOWN_NAME	;None\;None 
+(  43,10c6) [108] [DS]                             UNKOWN_NAME	0.000000\0.000000\0.000000\0.000000\0.000000\0.000000\0.000000\0.000000\0.000000\0.000000\0.000000\0.000000
+(  43,10c7) [108] [DS]                             UNKOWN_NAME	0.000000\0.000000\0.000000\0.000000\-0.125438\0.992101\0.000000\0.992101\0.125438\1.000000\0.000000\0.000000
+(  43,10c8) [4] [UL]                             UNKOWN_NAME	0
+(  43,10c9) [2] [IS]                             UNKOWN_NAME	24
+(7fe0,  10) [12800] [OW]                              PIXEL_DATA	blob size 12800
+--------------------------------------------
