@@ -2,14 +2,22 @@
 
 use strict;
 use warnings;
+use DateTime;
 
+# CURRENT_EXAM_COUNT should be an env variable and ideally always be
+# an exam of the current day or day before
 my exam=$CURRENT_EXAM_COUNT     # should be of type int
 my exam_tries = 3;              # Number of exams to check before giving up
 my series = 6       # 6 is the series number of the first mux sequence in most mux protocols 
                     # should be type: int
 my series_tries = 3     # number of series to check MUX sequences before moving to next exam
 my isMux = 'false'
-# Check the next n sequences for a MUX file, before checking the next m sessions and n sequences
+
+# Ensure sequence tested is not more than 2 days old
+my $date = DateTime->strftime( '%Y%m%d' )   # date in same format as dicom header
+my $max_age = 2; # Number of days in the past to perform QC
+
+# Check the next n sequences for a MUX file, before checking the next m sessions and n sequences (YYYYMMdd)
 while ($isMux == 'false') {
     # Call GE function "pathExtract" to get the path to what we hope is a MUX dicom
     my $pathExtract = `pathExtract $exam $series 1`;
@@ -42,21 +50,26 @@ while ($isMux == 'false') {
     my $total_imgs = `-lane 'print $F[5] if $. == 205' $dumpFile`;
     my $series_no = `-lane 'print $F[5] if $. == 196' $dumpFile`;
 
+    if ( $acq_date < $date - $max_age)
+
     # Check if sequence is MUX/Hyperband
-    if (index($sequence_params, 'HYPERBAND') != -1) {
+    if ( $acq_date < $date - $max_age )  {
+        next;
+    } elsif (index($sequence_params, 'HYPERBAND') != -1) {
         print "$sequence_params contains 'HYPERBAND'. Using sequence $series_no : $series_desc "
         my $isMux = 'true';
-        last;       # same as break or next
+        last;       # same as break
+    }
     } elsif ($series < $series_tries + $series) {
-            $series++;
+        $series++;
     } elsif ($exam > $exam_tries + $exam) {
         $exam++;
         $series = 6;
     } else {
         print "Tried $series_tries series of $exam_tries exams and found no MUX data to check. Skipping this round of QC."
+        exit 0;
     }
 }
-
 
 src="${file_parent}/*"
 dst="grayjoh@10.20.193.112:/MRI_DATA/coil-noise/scans/${exam}_0${series}_${acq_date}"
