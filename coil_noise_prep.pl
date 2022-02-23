@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use DateTime;
 use Tee;
+use Try::Tiny;
 
 sub main {
         # CURRENT_EXAM_COUNT should be an env variable and ideally always be
@@ -15,7 +16,7 @@ sub main {
     my series_tries = 5     # number of series to check MUX sequences before moving to next exam
     my isMux = 'false'
 
-    # Ensure sequence tested is not more than 2 days old
+    # Ensure sequence tested is not more than 2 days olde is a MUX dicom
     my $date = DateTime->strftime( '%Y%m%d' )   # date in same format as dicom header
     my $max_age = 2; # Number of days in the past to perform QC
 
@@ -23,7 +24,23 @@ sub main {
     while ($isMux == 'false') {
     # ~ ~ ~ ~ ~ ~ PATH EXTRACTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
         # Call GE function "pathExtract" to get the path to what we hope is a MUX dicom
-        my $pathExtract = `pathExtract $exam $series 1`;
+        try {
+            my $pathExtract = `pathExtract $exam $series 1`;
+        } catch( $e ) {
+            print("Error: $e \nCould not extract valid path from exam ${exam}. Moving back to previous exam number.")
+            $exam--;
+            try {
+                my $pathExtract = `pathExtract $exam $series 1`
+            } catch ( $err2 ) {
+                print("Error: $e \nCould not extract valid path from exam ${exam}. Moving back to previous exam number.")
+                $exam--;
+                try {
+                    my $pathExtract = `pathExtract $exam $series 1`;
+                } catch( $err3 ) {
+                    die("Path extraction failed for exam ${exam}. Is the CURRENT_EXAM_COUNT correct?")
+                }
+            }
+        }
         my @pathExtractArr = split(' ', $pathExtract);
         my $dicomPath = $pathExtractArr[2];     # return is in the form "PATH EXTRACT </path/>"
         print "$dicomPath";
@@ -53,7 +70,7 @@ sub main {
         my $total_imgs = `-lane 'print $F[5] if $. == 205' $dumpFile`;
         my $series_no = `-lane 'print $F[5] if $. == 196' $dumpFile`;
     
-        # Retry on different exam if older than x days, reset series count
+        # Retry on next exam if older than x days, reset series count
         if ( $acq_date < $date - $max_age )  {
             $exam++;
             $series = 6;
@@ -85,7 +102,7 @@ sub main {
 
     # Frequency to run QA test
     $CURRENT_EXAM_COUNT = $exam
-    export my $CURRENT_EXAM_COUNT += 5;
+    export my $CURRENT_EXAM_COUNT;
 
 }
 
