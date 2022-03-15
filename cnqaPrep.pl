@@ -3,7 +3,7 @@
 #use warnings;  # supress for production
 use File::Spec::Functions 'catfile';
 
-# Get Current Exam
+# GET CURRENT EXAM
 $currentExamFile = 'current_exam.txt';
 open(FH, '<', $currentExamFile) or die $!;
 $currentExam = int(<FH>);
@@ -14,13 +14,12 @@ print "\nStarting QC prep with exam $currentExam\n";
 $currentSeries = 5;
 $currentImage = 1;
 $isMux = 'false';
-
 $exam_ceiling = 20 + $currentExam;
 $series_ceiling = 10 + $currentSeries;
 $max_age = 1; # don't QC exams more than n days old
 $sample_file_count = 99;    # Number of DICOMs to include in transfer (depends on cnqa script needs)
 
-
+# GET TODAY'S DATE
 $dateCommand = "date +%Y%m%d";
 $date = `$dateCommand`;
 print "\nToday's date: $date\n";
@@ -29,28 +28,28 @@ print "Starting loop to search for a recent MUX sequence.";
 while ($isMux eq 'false') {
     print "\n\n\n\n-------NEXT SERIES---------------------------------------------";
     print "\nChecking exam $currentExam series $currentSeries ...\n";
-    $pathExtract = "/export/home/service/cclass/pathExtract $currentExam $currentSeries $currentImage";
-    $dumpDicomHeader = "/export/home/mx/host/bin/dumpDicomHeader $dicomPath";
+    
+    # GET PATH (pathExtract)
     print "\nRunning command: $pathExtract";
+    $pathExtract = "/export/home/service/cclass/pathExtract $currentExam $currentSeries $currentImage";
     $extractedPath = `$pathExtract`;    # Returns path with fluff
-    # print "\nChecking file: $extractedPath";
     my @extractedArr = split(' ', $extractedPath);
     $dicomPath = $extractedArr[2];      # Path without fluff
-    
     if ($dicomPath eq "") {
         print "\nNo more series for this exam (pathExtract output = 'NOT FOUND'). Moving to next exam.";
         $currentExam++;
         $currentSeries = 5;
         next;
     }
-
     print "\nChecking path:\n$dicomPath\n";
     $dicomParent = `dirname $dicomPath`;
     print "\nUsing parent path:\n$dicomParent\n";
+
+    # GET HEADER (dicmCompParser)
+    $dumpDicomHeader = "/export/home/mx/host/bin/dumpDicomHeader $dicomPath";
     $dicmCompParser = "/export/home/sdc/bin/dicmCompParser -i $dicomPath";
     print "\nRetreiving header dump--running command:\n$dicmCompParser";
     $headerDump = `$dicmCompParser`;  # call GE shell command 'dicmCompParser'
-
     # Remove leading/trailing whitespaces -- doesn't work on GE system 
     sub trim($) {
         my $string = shift;
@@ -59,7 +58,7 @@ while ($isMux eq 'false') {
         return $string;
     }
 
-    # PARSE HEADER DUMP / CREATE HASH TABLE 
+    # CREATE HASH TABLE FROM HEADER DUMP
     print "\nParsing header dump";
     @headers = split('#', $headerDump);    # Fieldnames start with #
     my %hash;
@@ -101,19 +100,22 @@ while ($isMux eq 'false') {
 	    print "\nCurrent exam $currentExam collected on $acq_date is too old.\nIncrementing exam number.";
         $currentExam++;     # Check next exam until it is recent
         next;
+    # Check for MUX (HYPERBAND=MUX)
     } elsif (index($sequence_params, 'HYPERBAND') != -1) {
         print "\nSeries $series_no from exam $exam_no is a MUX file. Sending for cnqa.";
         $isMux = 'true';
         $currentExam++;	# increment for next QC check
         last;   # Exit loop if MUX file
-    # Try next series for n tries
+    # Try next series for n tries (defined above)
     } elsif ($currentSeries < $series_ceiling) {
         $currentSeries++;
         print "\nThis series is not multiband. Checking series $currentSeries";
         next;
+    # Exit if exam retries exceeded
     } elsif ($currentExam == $exam_ceiling) {
         print "\nExceeded retries looking for exam with MUX files. None found. Exiting";
         exit 0;
+    # Next exam if series retries exceeded
     } elsif ($currentSeries == $series_ceiling) {        
         print "\nExceeded max tries for exam $currentExam. Checking next exam.";
         $currentExam++;
@@ -157,7 +159,7 @@ open(FH, '>', $destination) or die;
 print FH $dst;
 close(FH);
 
-# Write updated exam number for next QC
+# WRITE UPDATED EXAM # FOR NEXT QC
 open(FH, '>', $currentExamFile);
 print FH $currentExam;
 close(FH);

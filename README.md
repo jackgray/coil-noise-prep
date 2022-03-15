@@ -1,4 +1,4 @@
-Sends a multiband/hyperband DICOM series from GE MRI scanning console to be examined by the coil noise detector.  
+Sends a multiband/hyperband DICOM series from GE MRI scanning console to be examined by the coil noise detector container.  
   
 ## Requires:   
   
