@@ -1,6 +1,6 @@
 #! /bin/perl
 
-use warnings;
+#use warnings;  # supress for production
 use File::Spec::Functions 'catfile';
 
 # Get Current Exam
@@ -15,28 +15,40 @@ $currentSeries = 5;
 $currentImage = 1;
 $isMux = 'false';
 
-$exam_ceiling = 3 + $currentExam;
+$exam_ceiling = 20 + $currentExam;
 $series_ceiling = 10 + $currentSeries;
 $max_age = 1; # don't QC exams more than n days old
+$sample_file_count = 99;    # Number of DICOMs to include in transfer (depends on cnqa script needs)
 
-$pathExtract = "/export/home/service/cclass/pathExtract $currentExam $currentSeries $currentImage";
-$dumpDicomHeader = "/export/home/mx/host/bin/dumpDicomHeader $dicomPath";
-$dicmCompParser = "/export/home/sdc/bin/dicmCompParser -i $dicomPath";
+
 $dateCommand = "date +%Y%m%d";
 $date = `$dateCommand`;
 print "\nToday's date: $date\n";
 
 print "Starting loop to search for a recent MUX sequence.";
 while ($isMux eq 'false') {
-    print "\n\n\n\n----------------------------------------------------";
+    print "\n\n\n\n-------NEXT SERIES---------------------------------------------";
     print "\nChecking exam $currentExam series $currentSeries ...\n";
+    $pathExtract = "/export/home/service/cclass/pathExtract $currentExam $currentSeries $currentImage";
+    $dumpDicomHeader = "/export/home/mx/host/bin/dumpDicomHeader $dicomPath";
+    print "\nRunning command: $pathExtract";
     $extractedPath = `$pathExtract`;    # Returns path with fluff
+    # print "\nChecking file: $extractedPath";
     my @extractedArr = split(' ', $extractedPath);
     $dicomPath = $extractedArr[2];      # Path without fluff
-    print "Checking path:\n$dicomPath\n";
+    
+    if ($dicomPath eq "") {
+        print "\nNo more series for this exam (pathExtract output = 'NOT FOUND'). Moving to next exam.";
+        $currentExam++;
+        $currentSeries = 5;
+        next;
+    }
+
+    print "\nChecking path:\n$dicomPath\n";
     $dicomParent = `dirname $dicomPath`;
     print "\nUsing parent path:\n$dicomParent\n";
-    print "\nRetreiving header dump"
+    $dicmCompParser = "/export/home/sdc/bin/dicmCompParser -i $dicomPath";
+    print "\nRetreiving header dump--running command:\n$dicmCompParser";
     $headerDump = `$dicmCompParser`;  # call GE shell command 'dicmCompParser'
 
     # Remove leading/trailing whitespaces -- doesn't work on GE system 
@@ -48,9 +60,11 @@ while ($isMux eq 'false') {
     }
 
     # PARSE HEADER DUMP / CREATE HASH TABLE 
+    print "\nParsing header dump";
     @headers = split('#', $headerDump);    # Fieldnames start with #
     my %hash;
     foreach my $pair (@headers) {
+        # print "\nkv pair: $pair";
         ($key, $val) = split('\n', $pair);
         @valLine = split(' ', $val);    # \t+ doesn't play nice here
         $value = $valLine[3];   # human-readable value is 3rd column
@@ -68,7 +82,7 @@ while ($isMux eq 'false') {
     $sequence_params = $hash{' Scan Options'};
 
     # PRINT OUTPUT 
-    print "``````````````````````HEADER OUTPUT````````````````````````"
+    print "\n\n\n``````````````````````HEADER OUTPUT````````````````````````";
     print "\nProject: $project";
     print "\nProtocol: $protocol";
     print "\nExam : $exam_no";
@@ -76,7 +90,7 @@ while ($isMux eq 'false') {
     print "\nSeries Description: $series_desc";
     print "\nDate Acquired: $acq_date";
     print "\nSequence Parameters: $sequence_params\n";
-    print "```````````````````````````````````````````````````````````"
+    print "```````````````````````````````````````````````````````````\n\n";
 
     # Ensure exam is recent
     if ( $acq_date < $date - $max_age ) {
@@ -115,25 +129,32 @@ while ($isMux eq 'false') {
 
 # FOUND MUX FILE
 print "\n\nFound recent MUX series to quality check at $dicomParent \
-\nAdding path to queue for compute server to pick up.";
+\nAdding file paths of first $sample_file_count DICOMs to queue for compute server to pick up.";
 
 # Ensure single line
 chomp($dicomParent);
 my $src = catfile($dicomParent, "*");
-print "\nSource path:$src\n";
+# print "\nSource path:$src\n";
 $exam_no =~ s/^\s+|\s+$//g;
 my $dst = "/MRI_DATA/coil-noise/scans/${exam_no}_0${series_no}_${acq_date}";
-print "Destination path: $dst\n";
+print "\nDestination path: $dst\n";
 
 # Write paths to first 100 dicoms to queue file
-@allPaths = glob($src)
-@nPaths = @allPaths[0..99];
+@allPaths = glob($src);
+# print "All Paths: @allPaths";
+@nPaths = @allPaths[0..$sample_file_count];
+# print "n Paths: @nPaths";
 $queueFile = "qc_queue.txt";
 $destination = "qc_dst.txt";
 open(FH, '>', $queueFile) or die;
-    foreach @nPaths {
-        print FH "console:$_";
-    }
+foreach my $npath (@nPaths) {
+    print FH "$npath\n";
+}
+close(FH);
+
+# WRITE DESTINATION TO SEPARATE FILE
+open(FH, '>', $destination) or die;
+print FH $dst;
 close(FH);
 
 # Write updated exam number for next QC

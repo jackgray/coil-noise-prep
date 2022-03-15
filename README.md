@@ -1,9 +1,9 @@
 Sends a multiband/hyperband dicom series to be examined by the coil noise detector
 
-coil_noise_prep.pl -- to be run from GE scanning console, finds new mux sequence daily and exports its path to a text file.
+cnqaPrep.pl (set to run on cron before cnqaPull below)
+    - To be run from GE scanning console, finds new mux sequence daily and exports paths to first n DICOM files in that series to qc_queue.txt. A separate file, qc_dst.txt, is used to store the directory structure for the sample data to go in.
+    - Uses exam number stored in current_exam.txt to keep track of exam number to check for MUX DICOMs. In theory, date checking logic should keep this number accurate, but check the accuracy of this number if the automation breaks.
 
-pull_qaScans.sh -- Because the destination does not allow passwordless ssh, a script is run from the destination server to pull the paths defined in coil_noise_prep.pl from the text file, then scp from there.
-
-Set the env variable 'CURRENT_EXAM_COUNT' on the scanning console. For any failures, first check that this value is correct.
-Create a cron task on the scanning console machine to run the script 'coil-noise-prep.pl' nightly at 2am
-Create a second cron task on the analysis server to run the script 'pull_qaScans.sh' nightly at 3am
+cnqaPull.sh  (ensure cron runs after cnqaPrep)
+    - Because the destination does not allow passwordless ssh, this script will run on the destination server and use RSA authentication to rsync qc_queue.txt and qc_dst.txt.  - Then another rsync is run using  the --file-from=qc_queue.txt flag and the path extracted from qc_dst.txt as the destination.
+    - The command cnqa (wrapper for Docker container) is run using path from qc_dst.txt as the argument.

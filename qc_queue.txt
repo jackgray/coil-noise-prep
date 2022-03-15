@@ -1,2 +1,0 @@
-/export/home1/sdc_image_pool/images/p1108/e1121/s17627
-/*.dcm* /MRI_DATA/coil-noise/scans/21400 _06_20220309
