@@ -16,3 +16,4 @@ Sends a multiband/hyperband DICOM series from GE MRI scanning console to be exam
     - Because the destination does not allow passwordless ssh, this script will run on the destination server and use RSA authentication to rsync qc_queue.txt and qc_dst.txt.  
     - Then another rsync is run using  the --file-from=qc_queue.txt flag and the path extracted from qc_dst.txt as the destination.  
     - The command cnqa (wrapper for Docker container) is run using path from qc_dst.txt as the argument.
+    - A slack notification is sent if the message "No, we did not detect any coil noise" is not returned.
