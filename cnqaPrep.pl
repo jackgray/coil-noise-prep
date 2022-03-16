@@ -91,6 +91,7 @@ while ($isMux eq 'false') {
     print "\nSequence Parameters: $sequence_params\n";
     print "```````````````````````````````````````````````````````````\n\n";
 
+    # FILTER
     # Ensure exam is recent
     if ( $acq_date < $date - $max_age ) {
         if ( $acq_date == 0 ) {
