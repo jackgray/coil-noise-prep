@@ -1,16 +1,21 @@
 #! /bin/perl
+# Author: Jack Gray
+# Email: jgrayau@gmail.com
+# Created: March 2022
+
 
 #use warnings;  # supress for production
 use File::Spec::Functions 'catfile';
 
-# GET CURRENT EXAM
+# INITIALIZATION
+
+# Get current exam from file
 $currentExamFile = 'current_exam.txt';
 open(FH, '<', $currentExamFile) or die $!;
 $currentExam = int(<FH>);
 close(FH);
 print "\nStarting QC prep with exam $currentExam\n";
 
-# INITIALIZATION
 $currentSeries = 5;
 $currentImage = 1;
 $isMux = 'false';
@@ -18,12 +23,15 @@ $exam_ceiling = 20 + $currentExam;
 $series_ceiling = 10 + $currentSeries;
 $max_age = 1; # don't QC exams more than n days old
 $sample_file_count = 99;    # Number of DICOMs to include in transfer (depends on cnqa script needs)
+$queueFile = "qc_queue.txt";
+$destination = "qc_dst.txt";
 
-# GET TODAY'S DATE
+# Get today's date
 $dateCommand = "date +%Y%m%d";
 $date = `$dateCommand`;
 print "\nToday's date: $date\n";
 
+# START SEARCH LOOP
 print "Starting loop to search for a recent MUX sequence.";
 while ($isMux eq 'false') {
     print "\n\n\n\n-------NEXT SERIES---------------------------------------------";
@@ -47,11 +55,11 @@ while ($isMux eq 'false') {
 
     # GET HEADER (dicmCompParser)
     $dumpDicomHeader = "/export/home/mx/host/bin/dumpDicomHeader $dicomPath";
-    $dicmCompParser = "/export/home/sdc/bin/dicmCompParser -i $dicomPath";
+    $dicmCompParser = "/export/home/sdc/bin/dicmCompParser -i $dicomPath";  # These ^two commands are similar, but this one deliminates in a way that can be parsed more easily
     print "\nRetreiving header dump--running command:\n$dicmCompParser";
     $headerDump = `$dicmCompParser`;  # call GE shell command 'dicmCompParser'
-    # Remove leading/trailing whitespaces -- doesn't work on GE system 
-    sub trim($) {
+    
+    # Function to remove leading/trailing whitespaces
         my $string = shift;
         $string =~ s/^\s+//;
         $string =~ s/\s+$//;
@@ -137,18 +145,13 @@ print "\n\nFound recent MUX series to quality check at $dicomParent \
 # Ensure single line
 chomp($dicomParent);
 my $src = catfile($dicomParent, "*");
-# print "\nSource path:$src\n";
 $exam_no =~ s/^\s+|\s+$//g;
 my $dst = "/MRI_DATA/coil-noise/scans/${exam_no}_0${series_no}_${acq_date}";
 print "\nDestination path: $dst\n";
 
 # Write paths to first 100 dicoms to queue file
 @allPaths = glob($src);
-# print "All Paths: @allPaths";
 @nPaths = @allPaths[0..$sample_file_count];
-# print "n Paths: @nPaths";
-$queueFile = "qc_queue.txt";
-$destination = "qc_dst.txt";
 open(FH, '>', $queueFile) or die;
 foreach my $npath (@nPaths) {
     print FH "$npath\n";
